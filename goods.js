@@ -73,3 +73,49 @@ let calculateApplesWeight = (arr) => {
 };
 
 calculateApplesWeight(goods);
+
+
+let sortItems = (array) => {
+  let sortedItems = [];
+  array.forEach((object) => {
+    if (object.item) sortedItems.push(object.item);
+  });
+  sortedItems.sort();
+  let makeSet = new Set(sortedItems);
+  sortedItems = [...makeSet];
+  console.log(sortedItems);
+};
+
+sortItems(goods);
+
+function compare(x, y) {
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0;
+}
+
+let sortingByCost = (arr) => {
+  let pricePerKilo = [],
+    pricePerItem = [];
+  arr.forEach((object) => {
+    if (typeof object.pricePerKilo !== "undefined") {
+      pricePerKilo.push(`$${parseFloat(object.pricePerKilo)}`);
+    } else if (typeof object.pricePerItem !== "undefined") {
+      pricePerItem.push(`$${parseFloat(object.pricePerItem)}`);
+    }
+  });
+  let totalPrice = pricePerItem.concat(pricePerKilo);
+  pricePerKilo.sort(compare);
+  pricePerItem.sort(compare);
+  totalPrice.sort(compare);
+  console.log(`price per kilo ${pricePerKilo}`);
+  console.log(`price per item ${pricePerItem}`);
+  console.log(`total price ${totalPrice}`);
+};
+
+sortingByCost(goods);
+

@@ -52,3 +52,14 @@ let validateGoods = (products) => {
 
 validateGoods(goods);
 
+
+let calculateWatermelons = (arr) => {
+  let quantity = 0;
+  arr.forEach((object) => {
+    if (object.item == "watermelon") quantity++;
+  });
+  console.log(`The total quantity of all watermelons = ${quantity}`);
+};
+
+calculateWatermelons(goods);
+

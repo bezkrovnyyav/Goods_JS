@@ -119,3 +119,22 @@ let sortingByCost = (arr) => {
 
 sortingByCost(goods);
 
+
+let getType = (arr) => {
+  let price = [];
+  let type;
+  arr.forEach((object) => {
+    if (object.item === "orange") {
+      price.push(parseFloat(object.pricePerKilo));
+      price.sort(compare);
+      let cheapeOrange = price[0];
+      if (object.pricePerKilo === cheapeOrange) {
+        type = object.type;
+      }
+    }
+  });
+
+  console.log(`The cheapest orange type is: ${type}`);
+};
+
+getType(goods);

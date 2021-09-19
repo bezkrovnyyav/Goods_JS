@@ -69,7 +69,7 @@ let calculateApplesWeight = (arr) => {
   arr.forEach((object) => {
     if (object.item == "apple") weight += object.weight;
   });
-  console.log(`Apples = ${weight}`);
+  console.log(`The total weight of all apples = ${weight}`);
 };
 
 calculateApplesWeight(goods);

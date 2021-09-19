@@ -1,3 +1,5 @@
+let products = require('./goods_arr.json')
+
 let parsingProducts = (products) => {
   if (!products) return {};
   if (typeof products === "object") return products;
@@ -6,3 +8,4 @@ let parsingProducts = (products) => {
 };
 
 let goods = parsingProducts(products);
+

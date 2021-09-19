@@ -63,3 +63,13 @@ let calculateWatermelons = (arr) => {
 
 calculateWatermelons(goods);
 
+
+let calculateApplesWeight = (arr) => {
+  let weight = 0;
+  arr.forEach((object) => {
+    if (object.item == "apple") weight += object.weight;
+  });
+  console.log(`Apples = ${weight}`);
+};
+
+calculateApplesWeight(goods);

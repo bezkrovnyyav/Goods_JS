@@ -138,3 +138,55 @@ let getType = (arr) => {
 };
 
 getType(goods);
+
+
+
+let totalPrice = [];
+
+let getCost = (arr) => {
+  let applesPrice = [],
+    orangesPrice = [];
+	pineapplesPrice = [],
+    watermelonsPrice = [],
+  arr.forEach((object) => {
+    if (object.item === "apple") {
+      if (typeof object.pricePerKilo !== "undefined") {
+        applesPrice.push(`$${object.pricePerKilo}`);
+        totalPrice.push(parseFloat(object.pricePerKilo));
+      }
+    } else if (object.item === "pineapple") {
+      if (typeof object.pricePerItem !== "undefined") {
+        pineapplesPrice.push(`$${object.pricePerItem}`);
+        totalPrice.push(parseFloat(object.pricePerItem));
+      }
+    } else if (object.item === "watermelon") {
+      if (typeof object.pricePerItem !== "undefined") {
+        watermelonsPrice.push(`$${object.pricePerItem}`);
+        totalPrice.push(parseFloat(object.pricePerItem));
+      }
+    } else if (object.item === "orange") {
+      if (typeof object.pricePerKilo !== "undefined") {
+        orangesPrice.push(`$${object.pricePerKilo}`);
+        totalPrice.push(parseFloat(object.pricePerKilo));
+      }
+    }
+  });
+  console.log(
+    `Apples - ${applesPrice},Pineapples - ${pineapplesPrice}, Watermelons - ${watermelonsPrice}, Oranges - ${orangesPrice}`
+  );
+  return totalPrice;
+};
+
+getCost(goods);
+
+
+let goodsTotalPrice = (price) => {
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  let calculatePrice = price.reduce(reducer);
+  console.log(
+    `The total cost of goods is: $${calculatePrice}`
+  );
+  return calculatePrice;
+};
+
+goodsTotalPrice(totalPrice);
